@@ -3,77 +3,277 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>David Emanuel Bances Arana — Ingeniería en Sistemas</title>
-  <meta name="description" content="Portafolio y CV de David Emanuel Bances Arana — Estudiante de Ingeniería en Sistemas, 8.º semestre.">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" />
+  <title>David E. Bances Arana — Ingeniería en Sistemas</title>
+  <meta name="description" content="Portafolio profesional de David Emanuel Bances Arana — Estudiante de Ingeniería en Sistemas.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f6faf7;
+      --card: #ffffff;
+      --accent: #0b5f3a;
+      --muted: #5c6b63;
+      --text: #1f2933;
+      --radius: 10px;
+      --container: 1100px;
+      --shadow: 0 8px 24px rgba(14,22,18,0.06);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* container */
+    .container{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:20px;
+    }
+
+    /* header */
+    .site-header{
+      border-bottom:1px solid rgba(11,95,58,0.06);
+      background:linear-gradient(180deg, rgba(11,95,58,0.02), transparent);
+      padding:18px 0;
+    }
+    .site-header .container{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand .name{
+      margin:0;
+      font-family:"Merriweather", serif;
+      font-weight:700;
+      font-size:1.35rem;
+      color:var(--accent);
+    }
+    .brand .subtitle{
+      margin:4px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    .meta{display:flex;gap:18px;align-items:center}
+    .meta p{margin:0;color:var(--muted);font-size:0.95rem}
+    .meta a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    /* layout */
+    .layout{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:22px;
+      margin-top:20px;
+      margin-bottom:40px;
+    }
+
+    /* cards */
+    .card{
+      background:var(--card);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(11,95,58,0.03);
+    }
+
+    /* sidebar */
+    .sidebar .avatar{display:block;margin:6px auto 12px auto}
+    .sidebar .photo{text-align:center;margin-bottom:6px}
+    .section-title{
+      margin:12px 0 8px 0;
+      font-size:0.95rem;
+      color:var(--accent);
+      font-weight:700;
+    }
+    .list-plain{padding-left:0;margin:0 0 8px 0;list-style:none}
+    .list-plain li{margin:8px 0;color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:12px 0 0 0;list-style:none}
+    .skills li{background:#eaf6ee;padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:600;font-size:0.9rem}
+    .links{padding-left:0;margin:10px 0 0 0;list-style:none}
+    .links a{color:var(--accent);text-decoration:none}
+
+    /* content */
+    .content-title{
+      margin:0 0 12px 0;
+      color:var(--accent);
+      font-weight:700;
+      font-size:1.05rem;
+    }
+    .project{margin-bottom:14px}
+    .project-title{margin:0 0 6px 0;font-size:1rem;color:#163e2b}
+    .project-desc{margin:0;color:var(--muted)}
+
+    /* contact grid */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .muted{color:var(--muted);margin:0;font-size:0.88rem}
+    .small{font-size:0.95rem;color:var(--muted)}
+
+    /* footer */
+    .site-footer{border-top:1px solid rgba(11,95,58,0.04);padding:18px 0;background:transparent}
+    .site-footer small{color:var(--muted)}
+
+    /* remark */
+    .remark{background:transparent;border:none;padding:0;margin-top:18px}
+
+    /* responsive */
+    @media(max-width:980px){
+      .layout{grid-template-columns:1fr; padding:0}
+      .meta{display:none}
+      .site-header .container{flex-direction:column;align-items:flex-start;gap:8px}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    /* impresión */
+    @media print{
+      body{background:white;color:black}
+      .site-header, .site-footer, .meta{display:none}
+      .card{box-shadow:none;border:none}
+      .layout{grid-template-columns:1fr}
+      a::after{content:" (" attr(href) ")"; font-size:0.9em}
+      .container{padding:0}
+    }
+
+    /* pequeños ajustes visuales */
+    a{transition:all .12s ease}
+    a:hover{opacity:0.85}
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <h1 class="nombre">David Emanuel Bances Arana</h1>
-      <p class="lead">Ingeniería en Sistemas — 8.º semestre • 22 años</p>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="brand" aria-hidden="false">
+        <h1 class="name">David E. Bances Arana</h1>
+        <p class="subtitle">Ingeniería en Sistemas — 8.º semestre</p>
+      </div>
+
+      <nav class="meta" aria-label="Contacto rápido">
+        <p class="age">Edad: <strong>22</strong></p>
+        <p class="phone">Tel: <a href="tel:+50249607149">4960-7149</a></p>
+        <p class="email">Email: <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="card intro">
-      <h2>Perfil</h2>
-      <p>Soy estudiante de Ingeniería en Sistemas, con interés en desarrollo de software, sistemas embebidos y mantenimiento de hardware. Tengo experiencia en proyectos académicos con Arduino y prácticas de programación en Python y C++.</p>
-    </section>
+  <main class="container layout" role="main">
+    <aside class="sidebar card" aria-labelledby="perfil-title">
+     
 
-    <section class="card two-col">
-      <div>
-        <h3>Datos personales</h3>
-        <ul class="list">
-          <li><strong>Nombre:</strong> David Emanuel Bances Arana</li>
-          <li><strong>Edad:</strong> 22</li>
-          <li><strong>Teléfono:</strong> 49607149</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Formación</h3>
-        <ul class="list">
-          <li>Ingeniería en Sistemas — 8.º semestre (en curso)</li>
-          <li>Bachiller en Computación</li>
-          <li>Educación básica y primaria completada</li>
-        </ul>
-      </div>
-    </section>
+      <h3 id="perfil-title" class="section-title">Perfil</h3>
+      <p class="small">Estudiante de Ingeniería en Sistemas, con experiencia en proyectos académicos y desarrollo de soluciones web y embebidas. Interés en bases de datos, backend y sistemas IoT.</p>
 
-    <section class="card">
-      <h2>Conocimientos técnicos</h2>
-      <ul class="skills">
+      <h3 class="section-title">Formación</h3>
+      <ul class="list-plain" aria-label="Formación académica">
+        <li><strong>Ingeniería en Sistemas</strong> — 8.º semestre (en curso)</li>
+        <li><strong>Bachiller en Computación</strong></li>
+        <li>Educación básica y primaria completada</li>
+      </ul>
+
+      <h3 class="section-title">Habilidades técnicas</h3>
+      <ul class="skills" aria-label="Habilidades técnicas">
         <li>Python</li>
         <li>C++</li>
-        <li>Visual Studio (IDE)</li>
-        <li>HTML • CSS • JavaScript (básico)</li>
-        <li>Arduino • Electrónica básica</li>
-        <li>Mantenimiento de computadoras</li>
+        <li>Visual Studio</li>
+        <li>HTML / CSS / JS</li>
+        <li>Arduino • Electrónica</li>
+        <li>Mantenimiento de PC</li>
       </ul>
-    </section>
 
-    <section class="card">
-      <h2>Proyectos / Actividades (ejemplos)</h2>
-      <ul class="projects">
-        <li><strong>Semáforo con PICAXE / Arduino</strong> — Control y temporización de señales.</li>
-        <li><strong>Sistema de inventario (SQL Server)</strong> — Modelado y consultas básicas.</li>
-        <li><strong>Analizador sintáctico / Compilador (C++)</strong> — Práctica académica de compiladores.</li>
+      <h3 class="section-title">Enlaces</h3>
+      <ul class="links" aria-label="Enlaces">
+        <li><a href="https://github.com/bancesUMG" target="_blank" rel="noopener">GitHub (bancesUMG)</a></li>
+        <li><a href="https://sparkly-pithivier-2ab1ef.netlify.app/" target="_blank" rel="noopener">Sitio público (Netlify)</a></li>
       </ul>
-     
-    </section>
+    </aside>
 
-    <!-- Sección de descarga eliminada -->
+    <section class="content card" aria-labelledby="experiencia-title">
+      <h2 id="experiencia-title" class="content-title">Experiencia académica & proyectos</h2>
 
-    <section class="card">
-      <h2>Contacto</h2>
-      <p>Email: <a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
-      <p>Teléfono: 49607149</p>
+      <article class="project">
+        <h3 class="project-title">Red social (proyecto académico)</h3>
+        <p class="project-desc">Desarrollo de una plataforma para compartir imágenes con autenticación, subida y procesamiento básico de imágenes, y manejo de sesiones. Tecnologías: Node.js, MongoDB, React (prototipo).</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Sistema integral para recicladora</h3>
+        <p class="project-desc">Sistema multi-módulo para gestión de reciclaje: <em>Perfilería</em>, <em>Transporte</em> y <em>Tesorería</em>. Control de inventario por peso, gestión de ingresos/egresos y reportes. Tecnologías: HTML/CSS, SQL Server, Node/Flask (backend).</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Sitios web corporativos y portafolios</h3>
+        <p class="project-desc">Diseño y maquetación de sitios estáticos responsive listos para GitHub Pages / Netlify. Enfoque en accesibilidad, SEO básico y formato académico.</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Casa inteligente (IoT con Arduino)</h3>
+        <p class="project-desc">Prototipo de automatización con Arduino: control de actuadores y sensores (temperatura, humedad). Integración serial para control desde interfaz web local.</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Semáforo con Arduino / PICAXE</h3>
+        <p class="project-desc">Control y temporización de señales para intersecciones. Lógica de prioridad, pruebas de seguridad y documentación técnica del circuito y software.</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Manuales de usuario y técnico</h3>
+        <p class="project-desc">Elaboración de manuales orientados al usuario y manuales técnicos: instalación, configuración, instrucciones paso a paso y mantenimiento.</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Diagramas y documentación técnica</h3>
+        <p class="project-desc">Creación de diagramas de flujo, diagramas de contexto, diagramas de secuencia, DFD y documentación (DER, casos de uso). Herramientas: draw.io, PowerDesigner, Balsamiq.</p>
+      </article>
+
+      <article class="project">
+        <h3 class="project-title">Sistema de Registro y Empadronamiento (Guatemala)</h3>
+        <p class="project-desc">Participación en diseño y documentación de un sistema de registro ciudadano: modelado de datos, análisis de procesos y cronograma según SDLC académico.</p>
+      </article>
+
+      <h2 class="content-title">Resumen profesional</h2>
+      <p class="small">Interesado en roles de desarrollo backend, bases de datos y sistemas embebidos. Me destaco por la documentación técnica, trabajo en equipo y entrega de soluciones alineadas a especificaciones.</p>
+
+      <h2 class="content-title">Contacto</h2>
+      <div class="contact-grid" role="contentinfo" aria-label="Contacto">
+        <div>
+          <p class="muted">Teléfono</p>
+          <p><a href="tel:+50249607149">4960-7149</a></p>
+        </div>
+        <div>
+          <p class="muted">Email</p>
+          <p><a href="mailto:tu.email@ejemplo.com">tu.email@ejemplo.com</a></p>
+        </div>
+        <div>
+          <p class="muted">Ubicación</p>
+          <p>Guatemala</p>
+        </div>
+        <div>
+          <p class="muted">Disponibilidad</p>
+          <p>Proyectos académicos / Freelancer</p>
+        </div>
+      </div>
+
+      <footer class="card remark" aria-hidden="true">
+        <p class="muted small">Nota: para generar un PDF limpio utiliza "Imprimir → Guardar como PDF".</p>
+      </footer>
     </section>
   </main>
 
-  <footer class="footer">
-    <small>© David E. Bances Arana — Sitio estático</small>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <small>© 2025 David E. Bances Arana — Portafolio profesional</small>
+    </div>
   </footer>
 </body>
 </html>
+
